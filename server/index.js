@@ -17,15 +17,21 @@ require('dotenv').config();
 app.use(cors());
 
 const server = http.createServer(app);
-app.use(cors({
-  origin: 'https://askminds.onrender.com',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
+// app.use(cors({
+//   origin: 'https://askminds.onrender.com',
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true
+// }));
 const io = new Server(server, {
   cors: {
     origin: "https://askminds.onrender.com",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   },
 });
