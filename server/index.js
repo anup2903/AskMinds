@@ -23,11 +23,6 @@ app.use(
     credentials: true,
   })
 );
-// app.use(cors({
-//   origin: 'https://askminds.onrender.com',
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//   credentials: true
-// }));
 const io = new Server(server, {
   cors: {
     origin: "https://askminds.onrender.com",

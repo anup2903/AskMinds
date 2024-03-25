@@ -31,12 +31,12 @@ const DoubtAccept = () => {
 
   const handleInfo = async(studentId,studName)=>{
     try {
-      const response = await axios.post(`http://localhost:3000/info-post`, {
+      const response = await axios.post(`https://askminds.onrender.com/info-post`, {
         myId: teacherId,
         senderId: studentId,
         senderName: studName
       });
-      const response2 = await axios.post(`http://localhost:3000/info-post`, {
+      const response2 = await axios.post(`https://askminds.onrender.com/info-post`, {
         myId: studentId,
         senderId:teacherId ,
         senderName: name
@@ -48,7 +48,7 @@ const DoubtAccept = () => {
   const handleInfo2 = async(studentId,studName)=>{
     try {
       
-      const response = await axios.post(`http://localhost:3000/info-post`, {
+      const response = await axios.post(`https://askminds.onrender.com/info-post`, {
         myId: studentId,
         senderId:teacherId ,
         senderName: name
@@ -60,7 +60,7 @@ const DoubtAccept = () => {
 
   const handleAcceptDoubt = async (doubtId ,studentId,studName) => {
     try {
-      await axios.put(`http://localhost:3000/teacher/accepted`,{doubtId});
+      await axios.put(`https://askminds.onrender.com/teacher/accepted`,{doubtId});
       
       // console.log('Doubt accepted successfully');
       navigate(`/chatTeach/${teacherId}/${name}/${studentId}/${studName}`)
@@ -73,7 +73,7 @@ const DoubtAccept = () => {
 
   const getFilteredDoubts = async () => {
     try {
-      const url = `http://localhost:3000/teacher/get-doubts/${teacherId}`;
+      const url = `https://askminds.onrender.com/teacher/get-doubts/${teacherId}`;
         const response = await axios.get(url);
         const data = response.data;
         console.log('filtering');

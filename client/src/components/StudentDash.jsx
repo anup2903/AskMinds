@@ -24,7 +24,7 @@ export const StudentDash = () => {
   const postDoubt = async () => {
     try {
       
-      const response = await axios.post('http://localhost:3000/student/post-doubt', {
+      const response = await axios.post('https://askminds.onrender.com/student/post-doubt', {
         // studentName,
         doubtText,
         studentClass,
@@ -45,29 +45,7 @@ export const StudentDash = () => {
     }
   };
 
-  // const getFilteredDoubts = async () => {
-  //   try {
-  //     const params = new URLSearchParams({
-  //       studentClass: 10,
-  //       subject: "english",
-  //     });
-  //     const response = await fetch(
-  //       `http://localhost:3000/teacher/get-doubts?${params}`
-  //     );
-  //     // console.log(response);
-  //     const data = await response.json();
-
-  //     setFilteredDoubts(data);
-      
-  //   } catch (error) {
-  //     console.error("Error getting filtered doubts:", error);
-  //   }
-  // };  
-
-//   useEffect(() => {
-//     // Fetch filtered doubts when the component mounts
-//     getFilteredDoubts();
-//   }, []);
+  
 
   useEffect(()=>{
     AOS.init();

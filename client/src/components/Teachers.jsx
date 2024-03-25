@@ -36,7 +36,7 @@ const Teachers = () => {
   const handleUpdate = async ()=>{
     try {
       // Make the API call to update user information
-      await axios.put('http://localhost:3000/teacher/update', {
+      await axios.put('https://askminds.onrender.com/teacher/update', {
         teacherId,
         subject : selectedSubject,
         classs: selectedClass,
@@ -54,7 +54,7 @@ const Teachers = () => {
 
   const handleSavedinfo = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/teacher/information/${teacherId}`);
+      const response = await axios.get(`https://askminds.onrender.com/teacher/information/${teacherId}`);
       const { classs, subject } = response.data;
       setSelectedClass(classs);
       setSelectedSubject(subject);

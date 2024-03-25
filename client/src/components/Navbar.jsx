@@ -24,7 +24,7 @@ const Navbar = () => {
   }
   useEffect(()=>{
     const curUrl = window.location.href;
-    if(curUrl.includes('http://localhost:5173/teachsign')){
+    if(curUrl.includes('https://askminds.onrender.com/teachsign')){
       setHide(true)
     }
     else{

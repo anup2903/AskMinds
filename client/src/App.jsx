@@ -4,7 +4,6 @@ import Navbar from './components/Navbar'
 import Landing from './components/Landing'
 import Teachers from './components/Teachers'
 import TeachSign from './components/TeachSign'
-// import DashTeach from './components/DashTeach'
 import {
   BrowserRouter as Router,
   Routes,
@@ -31,7 +30,6 @@ function App() {
               {/* <Route path="land" element={<Landing />} /> */}
               <Route path="teachers" element={<Teachers />} />
               <Route path="teachsign" element={<TeachSign />} />
-              {/* <Route path="dashteach" element={<DashTeach />} /> */}
               <Route path="dashstud" element={<StudentDash />} />
               <Route path="dashteach/:teacherId/:name" element={<Demo />} />
               <Route path="dashstud/:studentId/:name" element={<DashStud />} />

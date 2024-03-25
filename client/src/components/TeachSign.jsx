@@ -80,7 +80,7 @@ const TeachSign = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/student/sign', form1);
+      const response = await axios.post('https://askminds.onrender.com/student/sign', form1);
       const { message1,insertedId,token } = response.data;
       // const { message1 } = response.data;
       setMessage1(message1);
@@ -125,13 +125,13 @@ const TeachSign = () => {
     <div className="signteach ">
       <Navbar />
       <div className="flex justify-center  login-main">
-        <div className="flex  justify-center items-center min-h-[30rem] h-auto teach-div w-[100%] opaci">
+        <div className="flex  justify-center items-center h-[30rem]  teach-div w-[100%] opaci">
           <form
             onSubmit={handleSubmit}
-            className="flex  justify-center items-center h-[30rem] teach-div w-[100%]"
+            className="flex  justify-center items-center min-h-[30rem] h-auto teach-div w-[100%]"
           >
             <div className="flex flex-col justify-center items-center mt-[5%]  teach-form w-[50%] px-3 h-[100%] relative rounded-xl shadow-lg log-in">
-              <img src={teacher} className="w-[40%]" />
+              <img src={teacher} className="w-[35%]" />
               <h1 className="text-2xl text-white mt-3 text-center">Sign In As Teacher</h1>
               <div className="w-[100%] relative flex justify-center my-5 gap-5">
                 <input
@@ -184,10 +184,10 @@ const TeachSign = () => {
         <div className="flex  justify-center items-center h-[30rem] w-[100%]">
           <form
             onSubmit={handleSubmit2}
-            className="flex  justify-center items-center h-[30rem] teach-div w-[100%]"
+            className="flex  justify-center items-center min-h-[30rem] h-auto teach-div w-[100%]"
           >
             <div className="flex flex-col justify-center items-center mt-[5%]  teach-form w-[50%] px-3 h-[100%] relative rounded-xl shadow-lg ">
-              <img src={student} className="w-[15rem]" />
+              <img src={student} className="w-[70%]" />
 
               <h1 className="text-2xl text-white mt-5 text-center">Sign In As Student</h1>
               <div className="w-[100%] relative flex justify-center my-5 gap-5">
