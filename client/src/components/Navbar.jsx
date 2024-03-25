@@ -20,6 +20,12 @@ const Navbar = () => {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('id');
     sessionStorage.removeItem('name');
+    sessionStorage.removeItem('user')
+    sessionStorage.removeItem('user')
+    sessionStorage.removeItem('teacherId')
+    sessionStorage.removeItem('studentId')
+    sessionStorage.removeItem('ids')
+    // if()
     navigate('/teachsign')
   }
   useEffect(()=>{
@@ -161,7 +167,7 @@ const Navbar = () => {
               {/* <hr className="w-[100%] border-gray-300 " /> */}
               <div className="bg-red-500 w-full flex items-center justify-center h-[4rem]">
                 <Link to="/teachsign">
-                  <button className="rounded-lg   loginbut text-xl text-white font-bold bg-red-500">
+                  <button className="rounded-lg   loginbut text-xl text-white font-bold bg-red-500" onClick={logout}>
                     Logout
                   </button>
                 </Link>
@@ -169,19 +175,19 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-around w-full   h-[9rem]  shownav bg-blue-950 opacity-800 text-white">
-              <a href="#features" className='flex items-center justify-center'>
+              <a href="#features" className='flex items-center justify-center' onClick={()=>{setShow(!show)}}>
                 <button className="  p-2  hover:rounded-lg hover:text-white navbut text-xl font-bold ">
                   Features
                 </button>
               </a>
               <hr className="w-[100%] border-gray-300 " />
-              <a href="#about" className='flex items-center justify-center'>
+              <a href="#about" className='flex items-center justify-center' onClick={()=>{setShow(!show)}}>
                 <button className=" p-2  hover:rounded-lg hover:text-white navbut text-xl font-bold">
                   About
                 </button>
               </a>
               <hr className="w-[100%] border-gray-300 " />
-              <Link to="/teachsign" className='flex items-center justify-center'>
+              <Link to="/teachsign" className='flex items-center justify-center' >
                 <button className="rounded-lg  px-5 py-2 loginbut text-xl text-white font-bold">
                   Login
                 </button>

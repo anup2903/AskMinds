@@ -182,9 +182,12 @@ const mergedAndSortedMessages = [...fullMessage, ...fullMessage2].sort((a, b) =>
       {teacherId ? (
         <div className="relative flex overflow-hidden bg-[#080a18]">
           <div className=" w-[5%] h-[100vh]  flex flex-col justify-between relative gap-3 py-6 chatNav">
-            <div className="flex items-center justify-center">
-              <img src={logo} className="w-[50%]" />
-            </div>
+            
+          <Link to="/"><div className="flex items-center justify-center">
+              
+                <img src={logo} className="w-[50%]" />
+              
+            </div></Link>
             <div className="h-[25%] flex flex-col justify-between">
               <Link to={`/dashstud/${studentId}/chat/${studentName}`}>
                 <div className="flex items-center justify-center">
@@ -320,7 +323,6 @@ const mergedAndSortedMessages = [...fullMessage, ...fullMessage2].sort((a, b) =>
                   </div>
                   <div className="flex flex-col  items-center  text-white h-[92%] justify-center">
                     <div className=" bg-[#1c326c] h-[85%] w-[85%] rounded-xl flex flex-col items-center">
-                      
                       {uniquePairArray.map((pair, index) => (
                         <div
                           key={index}

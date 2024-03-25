@@ -5,6 +5,7 @@ import axios from 'axios'
 import teacher from "../Icons/message.png"
 import { useDemoContext } from '../contexts/DemoContext';
 import back from "../Icons/back.png";
+import { Link } from 'react-router-dom';
 const ChatBox = ({selectName,onBack}) => {
     const { teacherId , studentId} = useParams();
     const randomSuffix = Math.random().toString(36).substring(2, 8);
@@ -90,11 +91,13 @@ const ChatBox = ({selectName,onBack}) => {
       {studentId ? (
         <div className="h-[100vh] overflow-hidden">
           <div className=" h-[8%] flex items-center shadow-sm shadow-slate-400 p-2">
-            <img
-              src={back}
-              className="w-[5%] ml-2 back hidden cursor-pointer"
-              onClick={handleClickBack}
-            />
+            <Link to="/">
+              <img
+                src={back}
+                className="w-[5%] ml-2 back hidden cursor-pointer"
+                onClick={handleClickBack}
+              />
+            </Link>
             <div className=" flex items-center pl-3  text-2xl ml-10 font-bold">
               {selectName || studentName}
             </div>
@@ -151,14 +154,16 @@ const ChatBox = ({selectName,onBack}) => {
               className=" p-2 rounded-2xl bg-[#080a18] text-white border-gray-700 border-2 w-[95%]"
             />
             <button onClick={sendMessage} className="ml-[-45px] text-[#5e82e6]">
-              Send 
+              Send
             </button>
           </div>
         </div>
       ) : (
         <div className=" flex flex-col items-center justify-center relative h-[100vh]">
           <img src={teacher} className="w-[30%]" />
-          <h1 className="text-6xl font-semibold text-center">Chat with your Students</h1>
+          <h1 className="text-6xl font-semibold text-center">
+            Chat with your Students
+          </h1>
         </div>
       )}
     </div>
