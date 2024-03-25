@@ -19,7 +19,7 @@ const LogStud = () => {
       e.preventDefault();
     
       try {
-        const response = await axios.post('https://askminds.onrender.com/student/login', form);
+        const response = await axios.post('/student/login', form);
         const { message, insertedId,name ,token} = response.data;
         sessionStorage.setItem('token',token)
             sessionStorage.setItem('id',insertedId)

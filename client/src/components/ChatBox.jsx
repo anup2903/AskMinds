@@ -23,7 +23,7 @@ const ChatBox = ({selectName,onBack}) => {
 
   const getFullMsg = async()=>{
     try{
-      const url = `https://askminds.onrender.com/chat-messages/${teacherId}/${studentId}`;
+      const url = `/chat-messages/${teacherId}/${studentId}`;
     const response = await axios.get(url);
     const data = response.data;
     setFullMessage(data);
@@ -35,7 +35,7 @@ const ChatBox = ({selectName,onBack}) => {
   }
   const getFullMsg2 = async()=>{
     try{
-      const url = `https://askminds.onrender.com/chat-messages/${studentId}/${teacherId}`;
+      const url = `/chat-messages/${studentId}/${teacherId}`;
     const response = await axios.get(url);
     const data = response.data;
     setFullMessage2(data);
@@ -51,7 +51,7 @@ const ChatBox = ({selectName,onBack}) => {
   
 
   useEffect(() => {
-    const newSocket = io('https://askminds.onrender.com'); 
+    const newSocket = io('http://localhost:3000'); 
     setSocket(newSocket);
     newSocket.emit("join_room", room);
     newSocket.emit('get_sender_messages', studentId, teacherId, (messages) => {

@@ -24,7 +24,7 @@ export const StudentDash = () => {
   const postDoubt = async () => {
     try {
       
-      const response = await axios.post('https://askminds.onrender.com/student/post-doubt', {
+      const response = await axios.post('/student/post-doubt', {
         // studentName,
         doubtText,
         studentClass,

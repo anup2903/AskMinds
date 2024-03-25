@@ -23,10 +23,15 @@ app.use(
     credentials: true,
   })
 );
+// app.use(cors({
+//   origin: 'https://askminds.onrender.com',
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true
+// }));
 const io = new Server(server, {
   cors: {
-    origin: "https://askminds.onrender.com",
-    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    origin: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   },
 });
@@ -53,29 +58,9 @@ app.use('/student', studentRoutes);
 app.use('/teacher', teacherRoutes);
 
 
-// --------------------------deployment------------------------------
-
-const __dirname1 = path.resolve();
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname1, "../client/dist")));
-
-  app.get("*", (req, res) =>
-    res.sendFile(path.join(__dirname1, "../client/dist", "index.html"))
-  );
-} else {
-  app.get("/", (req, res) => {
-    res.send("API is running..");
-  });
-}
-
-// --------------------------deployment------------------------------
 
 
-const port = 3000;
-server.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+
 
 
 
@@ -203,7 +188,7 @@ app.post('/info-post',async(req,res)=>{
     if(!newInfo.checked){
       newInfo.info.push({senderId,senderName,checked:true})
     const update = await newInfo.save();
-    res.status(200).json(update,{senderId,senderName})
+    res.status(200).json({senderId,senderName})
     }
     
   }
@@ -215,8 +200,8 @@ app.post('/info-post',async(req,res)=>{
 // get information(name,id)
 app.get('/info-get/:myId',async(req,res)=>{
   try{
-    const myId = req.params;
-    const getInfo = await Information.findOne(myId);
+    const myId = req.params.myId;
+    const getInfo = await Information.findOne({myId:myId});
     if(!getInfo){
       return res.status(400).json({message:"id not found"})
     }
@@ -227,3 +212,26 @@ app.get('/info-get/:myId',async(req,res)=>{
     console.log(err);
   }
 })
+
+const port = 3000;
+server.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+// --------------------------deployment------------------------------
+
+const __dirname1 = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "../client/dist")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.join(__dirname1, "../client/dist", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
+
+// --------------------------deployment------------------------------

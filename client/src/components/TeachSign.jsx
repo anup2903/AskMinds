@@ -41,7 +41,7 @@ const TeachSign = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://askminds.onrender.com/teacher/sign', form);
+      const response = await axios.post('/teacher/sign', form);
       const { message,insertedId ,token} = response.data;
       setToken(token)
       setMessage(message);
@@ -80,7 +80,7 @@ const TeachSign = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://askminds.onrender.com/student/sign', form1);
+      const response = await axios.post('/student/sign', form1);
       const { message1,insertedId,token } = response.data;
       // const { message1 } = response.data;
       setMessage1(message1);

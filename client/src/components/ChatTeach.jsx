@@ -54,7 +54,7 @@ const ChatTeach = () => {
 
     const getChats = async ()=>{
         try{
-            const url = `https://askminds.onrender.com/get-chats/${teacherId}`;
+            const url = `/get-chats/${teacherId}`;
         const response = await axios.get(url);
         const data = response.data;
         const names = data.map(item => item.senderName)
@@ -69,7 +69,8 @@ const ChatTeach = () => {
 
     const getIds = async()=>{
       try{
-        const response = await axios.get(`https://askminds.onrender.com/info-get/${teacherId}`);
+        const response = await axios.get(`/info-get/${teacherId}`);
+        console.log(response)
         const names = response.data.info;
         const pairs = names.map(item => [item.senderId, item.senderName]);
         const uniquePairs = new Set(pairs.map(pair => pair.join(',')));

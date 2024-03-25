@@ -18,6 +18,8 @@ import LogStud from './components/LogStud'
 import ChatTeach from './components/ChatTeach'
 import DoubtAccept from './components/DoubtAccept'
 import ChatStud from './components/ChatStud'
+import axios from 'axios'
+axios.defaults.baseURL = 'https://askminds.onrender.com'
 function App() {
 
   return (

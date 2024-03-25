@@ -64,7 +64,7 @@ const ChatStud = () => {
 
     const getChats = async ()=>{
         try{
-            const url = `https://askminds.onrender.com/get-chats/${studentId}`;
+            const url = `/get-chats/${studentId}`;
         const response = await axios.get(url);
         const data = response.data;
         console.log(data);
@@ -79,7 +79,7 @@ const ChatStud = () => {
 
   const getFullMsg = async()=>{
     try{
-      const url = `https://askminds.onrender.com/chat-messages/${teacherId}/${studentId}`;
+      const url = `/chat-messages/${teacherId}/${studentId}`;
     const response = await axios.get(url);
     const data = response.data;
     setFullMessage(data);
@@ -91,7 +91,7 @@ const ChatStud = () => {
   }
   const getFullMsg2 = async()=>{
     try{
-      const url = `https://askminds.onrender.com/chat-messages/${studentId}/${teacherId}`;
+      const url = `/chat-messages/${studentId}/${teacherId}`;
     const response = await axios.get(url);
     const data = response.data;
     setFullMessage2(data);
@@ -104,7 +104,7 @@ const ChatStud = () => {
 
   const getIds = async()=>{
     try{
-      const response = await axios.get(`https://askminds.onrender.com/info-get/${studentId}`);
+      const response = await axios.get(`/info-get/${studentId}`);
       const names = response.data.info;
         const pairs = names.map(item => [item.senderId, item.senderName]);
         const uniquePairs = new Set(pairs.map(pair => pair.join(',')));
@@ -119,7 +119,7 @@ const ChatStud = () => {
 
 
   useEffect(() => {
-    const newSocket = io('https://askminds.onrender.com');
+    const newSocket = io('http://localhost:3000');
     setSocket(newSocket);
     newSocket.emit("join_room", room);
     console.log("joined");
