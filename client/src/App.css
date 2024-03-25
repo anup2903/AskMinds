@@ -536,6 +536,10 @@ td {
 .chat-mid1{
   width: 100%;
 }
+.chatBox-top{
+  display: flex;
+  /* align-items: start; */
+}
 .chat1{
   width: 100%;
   /* display: none; */

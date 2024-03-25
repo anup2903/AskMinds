@@ -119,7 +119,7 @@ const ChatStud = () => {
 
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3000');
+    const newSocket = io('https://askminds.onrender.com');
     setSocket(newSocket);
     newSocket.emit("join_room", room);
     console.log("joined");

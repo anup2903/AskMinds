@@ -52,7 +52,7 @@ const ChatBox = ({selectName,onBack}) => {
   
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3000'); 
+    const newSocket = io('https://askminds.onrender.com'); 
     setSocket(newSocket);
     newSocket.emit("join_room", room);
     newSocket.emit('get_sender_messages', studentId, teacherId, (messages) => {
@@ -90,15 +90,15 @@ const ChatBox = ({selectName,onBack}) => {
     <div>
       {studentId ? (
         <div className="h-[100vh] overflow-hidden">
-          <div className=" h-[8%] flex items-center shadow-sm shadow-slate-400 p-2">
-            <Link to="/">
+          <div className=" h-[8%] flex items-center shadow-sm shadow-slate-400 p-2 chatBox-top">
+            {/* <Link to="/" className='w-[5%]'> */}
               <img
                 src={back}
                 className="w-[5%] ml-2 back hidden cursor-pointer"
                 onClick={handleClickBack}
               />
-            </Link>
-            <div className=" flex items-center pl-3  text-2xl ml-10 font-bold">
+            {/* </Link> */}
+            <div className=" flex items-center pl-3  text-2xl ml-10 font-bold text-center">
               {selectName || studentName}
             </div>
           </div>
